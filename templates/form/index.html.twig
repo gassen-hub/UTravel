@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+ <div class="container">
+ <div class="row">
+ <h3 class="mt-5 mb-5"> Create Form </h3>
+ {#{% for message in app.flashs ('succes')%} 
+ <div class = 'alert alert-succes'>
+ {{message}}
+ </div>
+ {% endfor %}#}
+   
+ <div class ="col-md-6 offset-md-3">
+ {% if form is defined %}
+ {{form_start(form)}}
+<div class = "form-group">
+{{form_label(form.nom_endroit)}}
+{{form_widget(form.nom_endroit,{'attr':{'class':'form-control'}})}}
+</div>
+<div class = "form-group">
+{{form_label(form.categorie)}}
+{{form_widget(form.categorie,{'attr':{'class':'form-control'}})}}
+</div>
+<div class = "form-group">
+{{form_label(form.adresse)}}
+{{form_widget(form.adresse,{'attr':{'class':'form-control'}})}}
+</div>
+<div class = "form-group">
+{{form_label(form.disponibilite)}}
+{{form_widget(form.disponibilite,{'attr':{'input':'form-control'}})}}
+</div>
+<div class = "form-group">
+{{form_label(form.horaire)}}
+{{form_widget(form.horaire,{'attr':{'class':'form-control'}})}}
+</div>
+<div class = "form-group">
+{{form_label(form.prix)}}
+{{form_widget(form.prix,{'attr':{'class':'form-control'}})}}
+</div>
+<div class = "form-group">
+<button class="btn btn-info mt-2 text-white ">Envoyez!</button>
+</div>
+{{form_end(form)}}
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock %}
