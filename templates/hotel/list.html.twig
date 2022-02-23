@@ -1,0 +1,32 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+    <h1>Hotel</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Classe</th>
+            <th>Prix</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in hotel %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.classe}}</td>
+                <td>{{ c.prix}}</td>
+                <td>
+                    <a href="{{ path('updateh', {'id': c.id}) }}">update</a>
+                    <a href="{{ path('deleteh', {'id': c.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('addh') }}">Create new</a>
+{% endblock %}

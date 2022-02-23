@@ -1,0 +1,32 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}Reservationindex{% endblock %}
+
+{% block body %}
+    <h1>Reservation</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>type</th>
+            <th>date</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for r in Reservation %}
+            <tr>
+                <td>{{ r.id }}</td>
+                <td>{{ r.type}}</td>
+                <td>{{ r.getDate()|date('d-m-Y') }}</td>
+                <td>
+                    <a href="{{ path('updater', {'id': r.id}) }}">update</a>
+                    <a href="{{ path('deleter', {'id': r.id}) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('addr') }}">Create new</a>
+{% endblock %}
