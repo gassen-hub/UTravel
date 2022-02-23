@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Guides</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <a type="button" href="guide/new" class="btn btn-block btn-dark">New Guide</a>
+
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                   <th>id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for guide in guides %}
+                    <tr>
+                        <td>{{ guide.id }}</td>
+                        <td>{{ guide.name }}</td>
+                        <td>{{ guide.age | slice(0, 20) }}...</td>
+                        <td><a href="guide/{{ guide.id }}/trips" type="button" class="btn btn-block btn-success">trips</a>
+                        <a type="button" href="guide/edit/{{ guide.id }}" class="btn btn-block btn-info">Update</a>
+                        <a type="button" href="guide/delete/{{ guide.id }}" class="btn btn-block btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %} 
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  <th>id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>                    
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+{% endblock %}

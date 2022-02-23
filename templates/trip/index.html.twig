@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Trips</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <a type="button" href="/guide/{{guide}}/trip/new" class="btn btn-block btn-dark">New Trip</a>
+{% if trips is not empty %}
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                   <th>id</th>
+                    <th>name</th>
+                    <th>date</th>
+                    <th>Sejour</th>
+                    <th>Prix</th>                       
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for trip in trips %}
+                    <tr>
+                    <td>{{ trip.id }}</td>
+                        <td>{{ trip.name }}</td>
+                        <td>{{ trip.date | date('d/m/Y') }}</td>
+                        <td>{{ trip.nbsejour }}</td>
+                        <td>{{ trip.prix }}</td>                      
+                        <td><a  class="btn btn-block btn-info" href="/guide/{{ trip.guide.id }}/trips/edit/{{ trip.id }}">Update</a>
+                        <a class="btn btn-block btn-danger" href="/guide/{{ trip.guide.id }}/trips/delete/{{ trip.id }}">Delete</a></td>
+                        </td>
+                    </tr>
+                {% endfor %} 
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  <th>id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Action</th>                    
+                  </tr>
+                  </tfoot>
+                </table>
+                {% else %}
+            <p>No trips found.</p>
+        {% endif %}
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+{% endblock %}

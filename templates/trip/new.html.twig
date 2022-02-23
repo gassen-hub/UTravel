@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+</br>
+</br>
+</br>
+    <div class="w3_login_module" id="kk">
+    <div class="module form-module">
+        <div class="toggle">
+
+        </div>
+        <div class="form" >
+       {{ form_start(form) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.date) }} <br>
+             {{ form_row(form.nbSejour) }} <br>
+             {{ form_row(form.prix) }} <br>
+            {{ form_end(form)}}
+        </div>
+        </div>
+<a href="/guide/{{guide}}/trips">Retour</a>
+
+{% endblock body %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <p>editer un trip</p>
+</div>
+<div class="container">
+    <div class="row">
+        {{ form_start(form) }}
+        <table>
+            <tbody>
+            <tr>
+                <th>Name:</th>
+                <td>{{ form_widget(form.name) }}</td>
+            </tr>
+            <tr>
+                <th>date:</th>
+                <td>{{ form_widget(form.date) }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de sejour:</th>
+                <td>{{ form_widget(form.nbSejour) }}</td>
+            </tr>
+            <tr>
+                <th>Prix:</th>
+                <td>{{ form_widget(form.prix) }}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>{{ form_widget(form.save) }}</td>
+            </tr>
+            </tbody>
+        </table>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock body %}
