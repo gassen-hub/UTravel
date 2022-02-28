@@ -17,8 +17,11 @@ class AcceuilController extends AbstractController
      */
     public function index(): Response
     {
+        $rep = $this->getDoctrine()->getRepository(Hotel::class);
+        $Hotel = $rep->findAll();
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
+            'Hotel' => $Hotel,
         ]);
     }
 }

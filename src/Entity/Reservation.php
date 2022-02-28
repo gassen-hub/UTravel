@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\User;
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,10 +28,14 @@ class Reservation
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Hotel::class, inversedBy="reservations")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reservations")
      */
-    private $hotel;
+    private $userid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Hotel::class, inversedBy="reservations")
+     */
+    private $hotelid;
 
     public function getId(): ?int
     {
@@ -62,14 +66,26 @@ class Reservation
         return $this;
     }
 
-    public function getHotel(): ?Hotel
+    public function getUserid(): ?user
     {
-        return $this->hotel;
+        return $this->userid;
     }
 
-    public function setHotel(?Hotel $hotel): self
+    public function setUserid(?user $userid): self
     {
-        $this->hotel = $hotel;
+        $this->userid = $userid;
+
+        return $this;
+    }
+
+    public function getHotelid(): ?Hotel
+    {
+        return $this->hotelid;
+    }
+
+    public function setHotelid(?Hotel $hotelid): self
+    {
+        $this->hotelid = $hotelid;
 
         return $this;
     }

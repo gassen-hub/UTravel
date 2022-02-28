@@ -1,6 +1,6 @@
 {% extends 'back.html.twig' %}
 
-{% block title %}Reservation index{% endblock %}
+{% block title %}Hotelindex{% endblock %}
 
 {% block body %}
     <h1>Hotel</h1>
@@ -9,20 +9,26 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Classe</th>
-            <th>Prix</th>
+            <th>name</th>
+            <th>location</th>
+            <th>nbrrooms</th>
+            <th>nbretoiles</th>
+            <th>caract</th>
 
         </tr>
         </thead>
         <tbody>
-        {% for c in hotel %}
+        {% for h in Hotel %}
             <tr>
-                <td>{{ c.id }}</td>
-                <td>{{ c.classe}}</td>
-                <td>{{ c.prix}}</td>
+                <td>{{ h.id }}</td>
+                <td>{{ h.name}}</td>
+                <td>{{ h.location}}</td>
+                <td>{{ h.nbrrooms}}</td>
+                <td>{{ h.nbretoiles}}</td>
+                <td>{{ h.caract}}</td>
                 <td>
-                    <a href="{{ path('updateh', {'id': c.id}) }}">update</a>
-                    <a href="{{ path('deleteh', {'id': c.id}) }}">delete</a>
+                    <a href="{{ path('updateh', {'id': h.id}) }}">update</a>
+                    <a href="{{ path('deleteh', {'id': h.id}) }}">delete</a>
                 </td>
             </tr>
         {% endfor %}
