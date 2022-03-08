@@ -313,15 +313,13 @@
 		 {% endfor %}#}
 		   
 		 <div class ="col-md-6 offset-md-3">
-		 {{form_start(form)}}
+		 {{form_start(form, {'attr': {'novalidate':'novalidate'}})}}
 		<div class = "text-start">
 		{{form_label(form.nom_endroit)}}
 		{{form_widget(form.nom_endroit,{'attr':{'class':'input-group input-group-outline my-3'}})}}
+		{{form_errors(form.nom_endroit)}}
 		</div>
-		<div class = "form-group">
-		{{form_label(form.categorie)}}
-		{{form_widget(form.categorie,{'attr':{'class':'input-group input-group-outline my-3'}})}}
-		</div>
+		
 		<div class = "form-group">
 		{{form_label(form.adresse)}}
 		{{form_widget(form.adresse,{'attr':{'class':'input-group input-group-outline my-3'}})}}
@@ -338,10 +336,22 @@
 		{{form_label(form.prix)}}
 		{{form_widget(form.prix,{'attr':{'class':'input-group input-group-outline my-3'}})}}
 		</div>
+		</div>
+		<div class = "form-group">
+		{{form_label(form.latitude)}}
+		{{form_widget(form.latitude,{'attr':{'class':'input-group input-group-outline my-3'}})}}
+		</div>
+		</div>
+		<div class = "form-group">
+		{{form_label(form.longitude)}}
+		{{form_widget(form.longitude,{'attr':{'class':'input-group input-group-outline my-3'}})}}
+		</div>
+		
 		<div class = "form-group">
 		<button class="btn btn-info mt-2 text-white ">Envoyez!</button>
-		</div>
 		{{form_end(form)}}
+		</div>
+		
 		</div>
 		</div>
 		</div>

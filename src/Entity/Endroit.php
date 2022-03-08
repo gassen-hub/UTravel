@@ -29,16 +29,7 @@ class Endroit
      */
     private $nom_endroit;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     * min = 5 , 
-     * max = 50,
-     * minMessage = "Le nom de l'endroit doit composer au moins {{limit}} lettre",
-     * maxMessage = "Le nom de l'endroit doit composer au plus {{limit}} lettre"
-     * )
-     */
-    private $categorie;
+  
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -60,6 +51,22 @@ class Endroit
      */
     private $prix;
 
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $latitude;
+
+      /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $longitude;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="endroits")
+     */
+private $categories;
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -77,17 +84,7 @@ class Endroit
         return $this;
     }
 
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(string $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
+   
 
     public function getAdresse(): ?string
     {
@@ -133,6 +130,48 @@ class Endroit
     public function setPrix(string $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    
+
+  
+
+    public function getCategories(): ?Categorie
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Categorie $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+
+
+    public function getLatitude(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(string $latitude): self
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLongitude (): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(string $longitude): self
+    {
+        $this->longitude = $longitude;
 
         return $this;
     }

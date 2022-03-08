@@ -13,11 +13,13 @@ class CrudType extends AbstractType
     {
         $builder
             ->add('nom_endroit')
-            ->add('categorie')
+            
             ->add('adresse')
             ->add('disponibilite')
             ->add('horaire')
             ->add('prix')
+            ->add('latitude')
+            ->add('longitude')
         ;
     }
 

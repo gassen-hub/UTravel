@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Entity\Endroit;
+use App\Form\EndroitType;
 use App\Form\CrudType ; 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,7 +30,7 @@ class MainController extends AbstractController
         public function create (Request $request)
         {
             $endroit = new Endroit() ; 
-            $form = $this->createForm(CrudType::class, $endroit) ; 
+            $form = $this->createForm(EndroitType::class, $endroit) ; 
         $form->handleRequest($request) ; 
         if($form ->isSubmitted()&& $form->isValid())
         {

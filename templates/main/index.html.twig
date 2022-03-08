@@ -69,13 +69,25 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{path('main')}}">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Tables</span>
+              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Table Endroit</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{path('activite')}}">
+              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Table Activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Forms</span>
+						<a class="sidebar-link" href="{{ path('create') }}">
+              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Endroit Form</span>
+            </a>
+			 </a>
+					</li>
+
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="{{ path('act') }}">
+              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Activite Form</span>
             </a>
 					</li>
 
@@ -307,10 +319,11 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nom Endroit</th>
-      <th scope="col">Categorie</th>
+     
       <th scope="col">Adresse</th>
       <th scope="col">Disponibilite</th>
-      <th scope="col">Horaire</th>
+      <th scope="col">L'altidude</th>
+	  <th scope="col">Longitude</th>
     </tr>
   </thead>
   <tbody>
@@ -318,10 +331,11 @@
     <tr>
       <th scope="row">{{data.id}}</th>
       <td>{{data.nomendroit}}</td>
-      <td>{{data.categorie}}</td>
       <td>{{data.adresse}}</td>
       <td>{{data.disponibilite}}</td>
       <td>{{data.horaire}}</td>
+	   <td>{{data.latitude}}</td>
+	    <td>{{data.longitude}}</td>
       
        <td>
        <a class ="btn btn-warning" href="{{path('update',{'id':data.id}) }}">Update </a>
