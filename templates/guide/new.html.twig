@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.back.html.twig' %}
 
 {% block body %}
 <br/>
@@ -11,7 +11,7 @@
 
         </div>
         <div class="form" >
-       {{ form_start(form) }}
+       {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
             {{ form_row(form.name) }}
             {{ form_row(form.age) }} <br>
             {{ form_end(form)}}

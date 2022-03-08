@@ -9,7 +9,6 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a type="button" href="/guide/{{guide}}/trip/new" class="btn btn-block btn-dark">New Trip</a>
 {% if trips is not empty %}
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
@@ -30,8 +29,8 @@
                         <td>{{ trip.date | date('d/m/Y') }}</td>
                         <td>{{ trip.nbsejour }}</td>
                         <td>{{ trip.prix }}</td>                      
-                        <td><a  class="btn btn-block btn-info" href="/guide/{{ trip.guide.id }}/trips/edit/{{ trip.id }}">Update</a>
-                        <a class="btn btn-block btn-danger" href="/guide/{{ trip.guide.id }}/trips/delete/{{ trip.id }}">Delete</a></td>
+                        <td><a  class="btn btn-block btn-info" href="#">Update</a>
+                        <a class="btn btn-block btn-danger" href="#">Delete</a></td>
                         </td>
                     </tr>
                 {% endfor %} 

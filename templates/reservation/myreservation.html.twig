@@ -1,0 +1,63 @@
+{% extends 'base.front.html.twig' %}
+
+{% block body %}
+
+<div class="col-12">
+{% for message in app.flashes('message') %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Reservation</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+              <a type="button" href="/user/reservation/generatePDF" class="btn btn-block btn-info">Generate PDF</a>
+{% if reservations is not empty %}
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                   <th>id</th>
+                    <th>client</th>
+                    <th>trips</th>
+                    <th>date</th>
+                    <th>Status</th>
+                    <th>Action</th>                       
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% for reservation in reservations %}
+                    <tr>
+                    <td>{{ reservation.id }}</td>
+                        <td>{{ reservation.user }}</td>                        
+                        <td>{{ reservation.trip }}</td>
+                        <td>{{ reservation.date | date('d/m/Y') }}</td>
+                        <td>{{ reservation.status }}</td>                      
+                        <td>
+                        <a class="btn btn-block btn-danger" href="/user/reservation/annule/{{ reservation.id }}">Cancel</a></td>
+                        </td>
+                    </tr>
+                {% endfor %} 
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  <th>id</th>
+                    <th>client</th>
+                    <th>trips</th>
+                    <th>date</th>
+                    <th>Status</th>
+                    <th>Action</th>                  
+                  </tr>
+                  </tfoot>
+                </table>
+                {% else %}
+            <p>No reservation found.</p>
+        {% endif %}
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+{% endblock %}
+

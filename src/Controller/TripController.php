@@ -20,9 +20,12 @@ class TripController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('trip/index.html.twig', [
+        $em= $this->getDoctrine()->getManager();
+        $trips=$this->getDoctrine()->getManager()->getRepository(Trip::class)->findAll();        
+        return $this->render('trip/list.html.twig', array(
             'controller_name' => 'TripController',
-        ]);
+            'trips' => $trips,
+        ));
     }
 
      /**
@@ -104,6 +107,19 @@ class TripController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('guide_trips', [
             'id' =>$id
+        ]);
+    }
+
+    /**
+     * @Route("/user/trip", name="user_trip")
+     */
+    public function indexUserTrips(): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trips = $this->getDoctrine()->getRepository(Trip::class)->findAll();
+        return $this->render('trip/trip.user.html.twig', [
+            'controller_name' => 'TripController',
+            'trips' => $trips
         ]);
     }
 }

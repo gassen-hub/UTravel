@@ -1,7 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.back.html.twig' %}
 
 {% block body %}
 <div class="col-12">
+<div class="container">
+    <div class="w3_login_module" id="kk">
+    <div class="module form-module">
+        <div class="toggle">
+
+        </div>
+        <div class="form" >
+       {{ form_start(form, {'attr': {'novalidate':'novalidate'}}) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.age) }} <br>
+            {{ form_end(form)}}
+        </div>
+        </div>
+    </div>
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Guides</h3>

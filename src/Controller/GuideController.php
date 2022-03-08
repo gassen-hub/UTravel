@@ -19,11 +19,18 @@ class GuideController extends AbstractController
      */
     public function index(): Response
     {
+        $guide = new Guide();
+        $form = $this->createFormBuilder($guide)
+            ->add('name', TextType::class, ['constraints' => new NotBlank([]),])
+            ->add('age', IntegerType::class, ['constraints' => new NotBlank(),])
+            ->add('save', SubmitType::class, ['label' => 'Search'])
+            ->getForm();
         $em= $this->getDoctrine()->getManager();
         $guides=$this->getDoctrine()->getManager()->getRepository(Guide::class)->findAll();        
         return $this->render('guide/index.html.twig', array(
             'controller_name' => 'GuideController',
             'guides' => $guides,
+            'form' => $form->createView(),
         ));
     }
 
