@@ -73,7 +73,7 @@ class UserController extends AbstractController
         $User = new User();
         $form=$this->createForm(UserType::class,$User);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $User=$form->getData();
             $em=$this->getDoctrine()->getManager();
             $em->persist($User);
@@ -89,6 +89,29 @@ class UserController extends AbstractController
         return $this->render('/user/add.html.twig',[
             'form' => $form->createView()
         ]);
+    }
+    /**
+     * @Route("/user/add2", name="nouveau2")
+     */
+    public function addUser2(Request $request ,\Swift_Mailer $mailer):Response
+    {
+        $User = new User();
+        $form=$this->createForm(UserType::class,$User);
+        $form->handleRequest($request);
+
+        $User = $form->getData();
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($User);
+        $em->flush();
+        $message = (new \Swift_Message('Hello User'))
+            ->setFrom('utravel.esprit@gmail.com')
+            ->setTo($User->getEmail())
+            ->setBody($this->renderView('/user/registration.html.twig', compact('User')), 'text/html');
+        $mailer->send($message);
+
+        return $this->redirectToRoute('login');
+
+
     }
     /**
      * @Route("user/login", name="login")
@@ -137,7 +160,7 @@ class UserController extends AbstractController
         $session = new Session();
         $session->set('user', $user);
 
-        return $this->redirectToRoute('user');
+        return $this->redirectToRoute('profile');
 
 
     }
@@ -186,6 +209,16 @@ class UserController extends AbstractController
         return $this->redirectToRoute('list');
 
     }
+    /**
+     * @Route("/user/profile", name="profile")
+     */
+    public function profile()
+    {
+        return $this->render('user/profile.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+
 
 
 

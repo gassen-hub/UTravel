@@ -2,7 +2,7 @@
 {% block title %} {% endblock %}
 
 {% block body %}
-<form style="color: lightcoral">
+<form style="color: lightcoral" action="{{ path('nouveau2') }}" method="post">
     <h1 style="color: lightcoral" align="center"> Ajouter Compte </h1>
     {{ form_start(form)  }}
     <a href="{{ path('list') }}"></a>

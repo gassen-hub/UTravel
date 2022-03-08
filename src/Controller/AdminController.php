@@ -54,6 +54,23 @@ class AdminController extends AbstractController
         ]);
     }
     /**
+     * @Route("/admin/ajout2", name="ajout2")
+     */
+    public function addAdmin2(Request $request):Response
+    {
+        $admin = new admin();
+        $form=$this->createForm(AdminType::class,$admin);
+        $form->handleRequest($request);
+
+        $admin=$form->getData();
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($admin);
+        $em->flush();
+        return $this->redirectToRoute('connexion');
+
+
+    }
+    /**
      * @Route("admin/seconnecter", name="connexion")
      */
     public function login2(Request $request) : Response
