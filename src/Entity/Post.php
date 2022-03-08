@@ -50,6 +50,21 @@ class Post
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $abn;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $jaime;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $jaimepas;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -114,9 +129,67 @@ class Post
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
             if ($comment->getPost() === $this) {
-                $comment->setPost(null);
+                $comment->setPost($this);
             }
         }
+
+        return $this;
+    }
+
+    public function getAbn(): ?int
+    {
+        return $this->abn;
+    }
+
+    public function setAbn(?int $abn): self
+    {
+        $this->abn = $abn;
+
+        return $this;
+    }
+ 
+    /**
+     * Increment upvote_count
+     *
+     * @return $this
+     */
+    public function incrUpvote()
+    {
+      $this->upvote_count++;
+      return $this;
+    }
+
+    /**
+     * Decrement upvote_count
+     *
+     * @return $this
+     */
+    public function decrUpvote()
+    {
+      $this->upvote_count--;
+      return $this;
+    }
+
+    public function getJaime(): ?int
+    {
+        return $this->jaime;
+    }
+
+    public function setJaime(?int $jaime): self
+    {
+        $this->jaime = $jaime;
+
+        return $this;
+    }
+
+    public function getJaimepas(): ?int
+    {
+        return $this->jaimepas;
+    }
+
+    public function setJaimepas(?int $jaimepas): self
+    {
+        $this->jaimepas = $jaimepas;
 
         return $this;
     }

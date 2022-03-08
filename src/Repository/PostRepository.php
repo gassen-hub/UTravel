@@ -47,4 +47,30 @@ class PostRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($content) {
+        return $this->createQueryBuilder('Post')
+            ->andWhere('Post.content LIKE :content')
+            ->setParameter('content', '%'.$content.'%')
+            ->getQuery()
+            ->getResult();
+    }
+    /**
+   * get one by id
+   *
+   * @param integer $id
+   *
+   * @return object or null
+   */
+  public function findPostById($id)
+  {
+    return $this->getEntityManager()
+    ->createQuery(
+      "SELECT p
+       FROM App:Post
+       p WHERE p.id = :id"
+      )
+      ->setParameter('id', $id)
+      ->getOneOrNullResult();
+  }
+
 }

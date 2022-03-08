@@ -48,10 +48,6 @@ class Comments
      */
     private $replies;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $test;
 
    
     public function getId(): ?int
@@ -85,12 +81,12 @@ class Comments
     }
 
 
-    public function getPost(): ?Post
+    public function getPost(): ?string
     {
         return $this->post;
     }
 
-    public function setPost(?Post $post): self
+    public function setPost(Post $post): self
     {
         $this->post = $post;
 

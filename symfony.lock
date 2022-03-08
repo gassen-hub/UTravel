@@ -1,12 +1,21 @@
 {
+    "bacon/bacon-qr-code": {
+        "version": "2.0.6"
+    },
     "captcha-com/captcha": {
         "version": "4.2.5"
     },
     "captcha-com/symfony-captcha-bundle": {
         "version": "4.2.12"
     },
+    "cmen/google-charts-bundle": {
+        "version": "4.0.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
+    },
+    "dasprid/enum": {
+        "version": "1.0.3"
     },
     "doctrine/annotations": {
         "version": "1.13",
@@ -94,6 +103,15 @@
     "egulias/email-validator": {
         "version": "3.1.2"
     },
+    "endroid/installer": {
+        "version": "1.4.0"
+    },
+    "endroid/qr-code": {
+        "version": "4.4.7"
+    },
+    "endroid/qr-code-bundle": {
+        "version": "4.0.7"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
@@ -128,7 +146,7 @@
         "version": "3.4.0"
     },
     "laminas/laminas-zendframework-bridge": {
-        "version": "1.4.0"
+        "version": "1.4.1"
     },
     "monolog/monolog": {
         "version": "1.26.1"

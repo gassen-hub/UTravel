@@ -35,7 +35,7 @@
       <!-- Navbar-->
       <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
         <div class="container-fluid">
-          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.html"><img src="{{ asset('front-office/img/logo.svg') }}" alt="Utravel logo"></a>
+          <div class="d-flex align-items-center"><a class="navbar-brand py-1" href="index.html"><img src="{{ asset('front-office/img/logo.svg') }}" alt="Directory logo"></a>
             <form class="form-inline d-none d-sm-flex" action="#" id="search">
               <div class="input-label-absolute input-label-absolute-left input-reset input-expand ml-lg-2 ml-xl-3"> 
                 <label class="label-absolute" for="search_search"><i class="fa fa-search"></i><span class="sr-only">What are you looking for?</span></label>
@@ -220,7 +220,7 @@
   <section class="position-relative py-6"><img class="bg-image" src="{{ asset('front-office/img/photo/photo-1467987506553-8f3916508521.jpg')}}" alt="">
  
 <div class="container">
-        
+        <div class="row">
           <div class="col-lg-6">
               
             </div>
@@ -249,7 +249,6 @@
 
 
                 <div>
-                    <label class="form-label mr-2" for="form_sort">Sort by</label>
                     <select class="selectpicker mr-3 mb-3 mb-lg-0" name="sort" id="form_sort" data-style="btn-selectpicker" title="">
                         <option value="sortBy_0">Newest   </option>
                         <option value="sortBy_1">Oldest   </option>
@@ -257,73 +256,19 @@
                     </select>
                 </div>
             </div>
-            <button class="btn btn-success btn-icon-split" ><a href="{{ path('addPost')  }}">
-            <span class="text" style="color: white">
-            Poster </span></a></button>
-            <!--list des postes--> 
-            {% for i in tablearticles %}
-          <table   style="margin-top:60px; margin-left:50px; margin=100px;">
-            <div class="list-group shadow mb-5" >
-                <div class="list-group-item list-group-item-action p-4">
-                    <div class="row">
-                        <div class="col-2 col-lg-1 align-self-lg-center py-3 d-flex align-items-lg-center">
-                
-                        </div>
-                        <div class="col-9 col-lg-4 align-self-center mb-3 mb-lg-0">
-                            <div class="d-flex align-items-center mb-1 mb-lg-3">
-                  <div class="col-md-8 py-3">
-                                 <p class="text-sm">{{ i.object }}</p>
-                                      </div>
-                            </div>
-                        </div>
-                        <div class="col-10 ml-auto col-lg-7">
-                            <div class="row">
-                                <div class="col-md-8 py-3">
-                            
-                                    <p class="text-sm">{{ i.content}}</p>
-                                </div>
-                                <div class="col-md-4 text-right py-3">
-                                
-                                    <p class="text-sm">Posted on : {{(i.date).format('d/m/Y')}}</p>
-                                </div>
-    
-                                <div class="col-md-12 text-right  py-3">
-                                   <a  href="{{ path('supprimerpost',{'id': i.id}) }}"><img src="https://img.icons8.com/color/48/000000/trash--v2.png"/></a>
-                                   </div>
-                            </div>
-                        </div>
-                     
-                        <a  href="{{ path('likepost',{'id':i.id}) }}">  <img   width="30" src="https://cdn-icons-png.flaticon.com/512/126/126473.png"></a>{{ i.jaime }}
+    <div class="robust-content content container-fluid">
+        <div class="content-wrapper">
+            <div id="div_chart"></div>
 
-                        <a  href="{{ path('dislikepost',{'id':i.id}) }}"> <img   width="30" src="https://cdn-icons-png.flaticon.com/512/126/126504.png"></a>{{ i.jaimepas }}
-               
-                   <tr>
-                    <a href="{{ path('stat', {'id': i.id}) }}" class="btn btn-dark">statistique</a>
-                   
-                    
-                    <a href="{{ path('Show', {'id': i.id}) }}" class="btn btn-primary">Detail</a>
-                  
- 
-
-                    <a  class="btn btn-success" href="{{ path('upPost',{'id': i.id}) }}"> Modifier </a>
-
-                         
-                
-  
-
-   
-     </tr>
-               
-          
-               
-            
-     
-                   
-            </div>
-            {% endfor %}
-            </table>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                {{ gc_draw(piechart, 'div_chart') }}
+            </script>
 
         </div>
+    </div>
+
+ </div>
 
    
 
