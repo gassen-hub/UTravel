@@ -5,11 +5,16 @@ namespace App\Controller;
 
 use App\Entity\Endroit;
 use App\Form\EndroitType;
-use App\Form\CrudType ; 
+use App\Form\CrudType ;
+use App\Repository\EndroitRepository;
+use Doctrine\DBAL\Driver\Mysqli\Initializer\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options as DompdfOptions;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MainController extends AbstractController
 {
@@ -81,7 +86,34 @@ class MainController extends AbstractController
         return $this->redirectToRoute('main') ; 
     }
 
+/**
+     * @Route("/pdf/{id}", name="pdf" ,  methods={"GET"})
+     */
+    public function pdf($id,EndroitRepository $repository)
+    {
 
+        $endroit = $repository->find($id);
+
+        $pdfOptions = new DompdfOptions();
+        
+        $pdfOptions->set('defaultFont', 'Arial');
+        $dompdf = new Dompdf($pdfOptions);
+        $html = $this->renderView('main/pdf.html.twig', [
+            'pdf' => $endroit
+        ]);
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+        //  $dompdf->stream();
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream($endroit->getId(), [
+            "Attachment" => true
+        ]);
+    }
 
   
 

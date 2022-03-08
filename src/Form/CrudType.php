@@ -20,6 +20,7 @@ class CrudType extends AbstractType
             ->add('prix')
             ->add('latitude')
             ->add('longitude')
+            ->add('envoyer',SubmitType::class)
         ;
     }
 
