@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %} {% endblock %}
+
+{% block body %}
+<form style="color: lightcoral">
+    <h1 style="color: lightcoral" align="center"> Ajouter Compte </h1>
+    {{ form_start(form)  }}
+    <a href="{{ path('list') }}"></a>
+    <table align="center">
+        <tr style="color: lightcoral" align="center">
+            <td align="center">{{ form_label(form.firstName,"Votre prenom") }}</td>
+            <td>{{ form_widget(form.firstName) }}</td>
+            <td>{{ form_errors(form.firstName) }}</td>
+
+        </tr>
+
+        <tr style="color: lightcoral" align="center">
+            <td align="center">{{ form_label(form.lastName,"Votre nom") }}</td>
+            <td>{{ form_widget(form.lastName) }}</td>
+            <td>{{ form_errors(form.lastName) }}</td>
+        </tr>
+        <tr style="color: lightcoral" align="center">
+            <td align="center">{{ form_label(form.email,"Email") }}</td>
+            <td>{{ form_widget(form.email) }}</td>
+            <td>{{ form_errors(form.email) }}</td>
+        </tr>
+        <tr style="color: lightcoral" align="center">
+            <td align="center">{{ form_label(form.datenaiss,"date de naissance") }}</td>
+            <td>{{ form_widget(form.datenaiss) }}</td>
+            <td>{{ form_errors(form.datenaiss) }}</td>
+        </tr>
+        <tr style="color: lightcoral" align="center">
+            <td align="center">{{ form_label(form.password,"mot de passe") }}</td>
+            <td align="center">{{ form_widget(form.password) }}</td>
+            <td align="center">{{ form_errors(form.password) }}</td>
+        </tr>
+    </table>
+    {{ form_end(form) }}
+</form>
+{% endblock %}

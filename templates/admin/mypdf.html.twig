@@ -1,0 +1,11 @@
+<h1> Welcome to list users</h1>
+<table border=5>
+    {%for c in users %}
+        <tr>
+            <td> {{c.id}} </td>
+            <td> {{c.firstName}} </td>
+            <td> {{c.lastName}} </td>
+            <td> {{c.email}}  </td>
+        </tr>
+    {% endfor %}
+</table>

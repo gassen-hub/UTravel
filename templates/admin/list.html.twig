@@ -1,0 +1,24 @@
+{% extends 'base-back.html.twig' %}
+
+{% block body %}
+    <h1> liste des admins </h1>
+
+    <table border="2">
+        <th>id</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr {% for c in admin %}>
+            <td> {{ c.id }}</td>
+            <td> {{ c.firstName }}</td>
+            <td> {{ c.lastName }}</td>
+            <td> {{ c.email }}</td>
+            <td> <a href="{{path('modifier',{'id':c.id})}}" > edit</a></td>
+            <td> <a href="{{path('supprimer',{'id':c.id})}}" > delete</a> </td>
+
+        </tr {% endfor %}>
+
+    </table>
+{% endblock %}

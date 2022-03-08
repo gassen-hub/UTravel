@@ -1,0 +1,33 @@
+<style>
+    body {
+        background-image: url({{ asset('front-office/img/photo/photo-1522143049013-2519756a52d4.jpg') }});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+
+{% block body %}
+    <div class="container" >
+    <div class="row">
+    <div class="col-md-10 ml-md-auto">
+    <div class="">
+    </div>
+
+    <form class="bg-fixed-white" role="form" method="post" action="{{ path('dashboard') }}" method="post">
+        <div align="center"><label style="color: lightcoral" for="email">Email  </label></div>>
+        <div align="center"><input type="text" id="email" name="_username"  /></div>>
+
+        <div align="center"><label style="color: lightcoral" for="password">mot de passe</label></div>>
+        <div align="center"><input type="password" id="password" name="_password" /></div>>
+
+        {#
+        If you want to control the URL the user
+        is redirected to on success (more details below)
+        <input type="hidden" name="_target_path" value="/account" />
+        #}
+
+        <div align="center"><button style="color: lightcoral" type="submit">Se connecter</button></div>
+    </form>
+{% endblock %}

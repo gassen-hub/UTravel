@@ -1,0 +1,38 @@
+<style>
+    body {
+        background-image: url({{ asset('front-office/img/photo/photo-1522143049013-2519756a52d4.jpg') }});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+{% block body %}
+    <style>
+button {
+    border: none;
+    color: white;
+    padding: 25px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+    </style>
+
+    <div align="center">
+        <a href="{{ path ('user') }}">
+            <button style="color: lightcoral ; margin-top:200px" type="button" > Client</button>
+        </a>
+    <div align="center">
+        <a href="{{ path ('admin') }}">
+            <button style="color: lightcoral" type="button" > Admin </button>
+        </a>
+    </div>
+
+
+
+
+{% endblock %}
