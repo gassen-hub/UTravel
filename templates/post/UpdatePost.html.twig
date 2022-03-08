@@ -1,0 +1,37 @@
+{% extends 'base-front.html.twig' %}
+{% block body %}
+
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+
+    <div class="form-group" data-sb-validations="required">
+        {{ form_label(form.object	, 'Object')  }}
+        {{ form_widget(form.object	  ,{'attr': {'class': 'form-control form-control-user' , 'placeholder' : ' Enter your Object '}} ) }}
+        {{ form_errors(form.object ) }}
+
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.content, 'Content')  }}
+
+        {{ form_widget(form.content , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : ' content'}} ) }}
+        {{ form_errors(form.content) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.date, 'Date ')  }}
+
+        {{ form_widget(form.date , {'attr': {'class': 'form-control form-control-user' , 'placeholder' : 'date'}} ) }}
+        {{ form_errors(form.date) }}
+    </div>
+
+
+
+
+    {{ form_end(form) }}
+
+
+
+
+
+{% endblock %}
