@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="566.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication15.FXMLController">
+   <children>
+      <TableView fx:id="Table" layoutX="21.0" layoutY="53.0" prefHeight="228.0" prefWidth="605.0">
+        <columns>
+          <TableColumn fx:id="cNom" prefWidth="67.0" text="Nom" />
+          <TableColumn fx:id="cType" prefWidth="68.0" text="Type" />
+            <TableColumn fx:id="cPrix" prefWidth="83.0" text="Prix" />
+            <TableColumn fx:id="cNb" prefWidth="76.0" text="Nb prs" />
+            <TableColumn fx:id="cDB" prefWidth="98.0" text="Date debut" />
+            <TableColumn fx:id="cDF" prefWidth="106.0" text="Date Fin" />
+            <TableColumn fx:id="cFD" prefWidth="106.0" text="Fiche Desc" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="28.0" prefWidth="367.0" style="-fx-background-color: #ff4565;" text="List" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDelete" layoutX="229.0" layoutY="513.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+      <Button fx:id="btnEdit" layoutX="353.0" layoutY="513.0" mnemonicParsing="false" onAction="#event" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: red;" text="Edit" textFill="WHITE" />
+      <Button layoutX="571.0" layoutY="13.0" mnemonicParsing="false" onAction="#event" prefHeight="31.0" prefWidth="39.0" style="-fx-background-color: red;" text="&lt;-" textFill="WHITE" />
+      <TextField fx:id="fNom" layoutX="131.0" layoutY="311.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField fx:id="fType" layoutX="131.0" layoutY="355.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField fx:id="fPrix" layoutX="131.0" layoutY="399.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField fx:id="fNB" layoutX="131.0" layoutY="438.0" prefHeight="25.0" prefWidth="107.0" />
+      <TextField fx:id="fDD" layoutX="428.0" layoutY="311.0" prefHeight="25.0" prefWidth="169.0" />
+      <TextField fx:id="fDF" layoutX="428.0" layoutY="355.0" prefHeight="25.0" prefWidth="169.0" />
+      <TextField fx:id="fFiche" layoutX="430.0" layoutY="399.0" prefHeight="78.0" prefWidth="169.0" />
+      <Label layoutX="14.0" layoutY="314.0" prefHeight="19.0" prefWidth="107.0" text="Nom Activite">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="358.0" prefHeight="19.0" prefWidth="75.0" text="Type">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="402.0" prefHeight="19.0" prefWidth="107.0" text="Prix">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="441.0" prefHeight="19.0" prefWidth="107.0" text="Nombre Personnes">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="304.0" layoutY="314.0" prefHeight="19.0" prefWidth="115.0" text="Date Debut">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="301.0" layoutY="358.0" prefHeight="19.0" prefWidth="105.0" text="Date Fin">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="278.0" layoutY="408.0" prefHeight="26.0" prefWidth="195.0" text="Fiche descriptive">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnMap" layoutX="465.0" layoutY="513.0" mnemonicParsing="false" onAction="#ShowMap" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: red;" text="Map" textFill="WHITE" />
+      <Button fx:id="btnDelete1" layoutX="121.0" layoutY="513.0" mnemonicParsing="false" onAction="#SendSMS" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: red;" text="SMS " textFill="WHITE" />
+   </children>
+</AnchorPane>

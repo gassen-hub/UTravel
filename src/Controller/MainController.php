@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Dompdf\Dompdf;
 use Dompdf\Options as DompdfOptions;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Form\SubmitType;
 
 class MainController extends AbstractController
 {

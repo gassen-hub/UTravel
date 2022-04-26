@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication15.RealFormController">
+    <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+  
+      <HBox layoutX="20.0" layoutY="236.0" prefHeight="18.0" prefWidth="74.0" />
+      <HBox layoutX="12.0" layoutY="434.0" prefHeight="26.0" prefWidth="148.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="195.0" text="Place">
+               <font>
+                  <Font name="Cambria Bold" size="16.0" />
+               </font>
+            </Label>
+         </children></HBox>
+      <HBox layoutX="441.0" layoutY="434.0" prefHeight="26.0" prefWidth="237.0" />
+      <HBox layoutX="5.0" layoutY="330.0" prefHeight="19.0" prefWidth="105.0" />
+      <Label layoutX="20.0" layoutY="50.0" prefHeight="19.0" prefWidth="141.0" text="Nom Activite">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="106.0" prefHeight="19.0" prefWidth="115.0" text="Type">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="152.0" prefHeight="19.0" prefWidth="123.0" text="Prix">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="200.0" prefHeight="19.0" prefWidth="164.0" text="Nombre Personnes">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="254.0" prefHeight="19.0" prefWidth="115.0" text="Date Debut">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="312.0" prefHeight="19.0" prefWidth="105.0" text="Date Fin">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="374.0" prefHeight="26.0" prefWidth="195.0" text="Fiche descriptive">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fPrix" layoutX="259.0" layoutY="149.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fNom" layoutX="259.0" layoutY="47.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fType" layoutX="259.0" layoutY="103.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fNB" layoutX="259.0" layoutY="197.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fDD" layoutX="259.0" layoutY="251.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fDF" layoutX="259.0" layoutY="309.0" prefHeight="25.0" prefWidth="270.0" />
+      <TextField fx:id="fFiche" layoutX="259.0" layoutY="375.0" prefHeight="18.0" prefWidth="270.0" />
+      <Button fx:id="btnInsert" layoutX="339.0" layoutY="520.0" mnemonicParsing="false" onAction="#AddCommande" prefHeight="31.0" prefWidth="75.0" style="-fx-background-color: red;" text="Insert" textFill="WHITE" />
+      <Label layoutX="13.0" layoutY="470.0" prefHeight="26.0" prefWidth="195.0" text="Pays">
+         <font>
+            <Font name="Cambria Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ftplace" layoutX="259.0" layoutY="422.0" prefHeight="18.0" prefWidth="270.0" />
+      <TextField fx:id="ftpays" layoutX="259.0" layoutY="471.0" prefHeight="18.0" prefWidth="270.0" />
+   </children>
+</AnchorPane>

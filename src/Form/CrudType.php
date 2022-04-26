@@ -6,6 +6,8 @@ use App\Entity\Endroit;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use App\Form\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType as TypeSubmitType;
 
 class CrudType extends AbstractType
 {
@@ -20,7 +22,7 @@ class CrudType extends AbstractType
             ->add('prix')
             ->add('latitude')
             ->add('longitude')
-            ->add('envoyer',SubmitType::class)
+            
         ;
     }
 
